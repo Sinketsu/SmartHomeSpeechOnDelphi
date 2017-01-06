@@ -1,0 +1,99 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 476
+  ClientWidth = 380
+  Fill.Color = claBlack
+  Fill.Kind = Solid
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object editip: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    Align = Horizontal
+    TabOrder = 8
+    TextSettings.FontColor = claAliceblue
+    Position.Y = 72.000000000000000000
+    Size.Width = 380.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    StyledSettings = [Family, Size, Style]
+  end
+  object speechbtn: TButton
+    Align = Center
+    StyledSettings = [Family, Style]
+    Size.Width = 132.000000000000000000
+    Size.Height = 100.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'toolbuttonmiddle'
+    TabOrder = 9
+    Text = #1057#1050#1040#1047#1040#1058#1068
+    TextSettings.Font.Size = 17.000000000000000000
+    TextSettings.FontColor = claAliceblue
+    OnClick = speechbtnClick
+  end
+  object tempbtn: TButton
+    Align = Horizontal
+    StyledSettings = [Family, Size, Style]
+    Position.Y = 104.000000000000000000
+    Size.Width = 380.000000000000000000
+    Size.Height = 57.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 10
+    Text = 'Save'
+    TextSettings.FontColor = claAliceblue
+    OnClick = tempbtnClick
+  end
+  object cmdline: TLabel
+    Align = Bottom
+    StyledSettings = [Family, Size, Style]
+    Position.Y = 440.000000000000000000
+    Size.Width = 380.000000000000000000
+    Size.Height = 36.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.FontColor = claAliceblue
+    TextSettings.HorzAlign = Center
+  end
+  object Speech: TSpeechRecognition
+    Language = 'ru-RU'
+    OnRecognition = SpeechRecognition
+    Left = 8
+    Top = 8
+  end
+  object http: TIdHTTP
+    IOHandler = iohandler
+    AllowCookies = True
+    ProxyParams.BasicAuthentication = False
+    ProxyParams.ProxyPort = 0
+    Request.ContentLength = -1
+    Request.ContentRangeEnd = -1
+    Request.ContentRangeStart = -1
+    Request.ContentRangeInstanceLength = -1
+    Request.Accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    Request.BasicAuthentication = False
+    Request.UserAgent = 'Mozilla/3.0 (compatible; Indy Library)'
+    Request.Ranges.Units = 'bytes'
+    Request.Ranges = <>
+    HTTPOptions = [hoForceEncodeParams]
+    CookieManager = cookie
+    Left = 56
+    Top = 8
+  end
+  object cookie: TIdCookieManager
+    Left = 104
+    Top = 8
+  end
+  object iohandler: TIdSSLIOHandlerSocketOpenSSL
+    MaxLineAction = maException
+    Port = 0
+    DefaultPort = 0
+    SSLOptions.Mode = sslmUnassigned
+    SSLOptions.VerifyMode = []
+    SSLOptions.VerifyDepth = 0
+    Left = 152
+    Top = 8
+  end
+end
